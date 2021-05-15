@@ -71,7 +71,7 @@
       </a-menu-item>
       <a-menu-item key="Find" class="spacer">
         <BulbOutlined />
-        <span>{{ $t("header_menu.Find") }}</span>
+        <span>{{ $t("header_menu.FindMore") }}</span>
       </a-menu-item>
     </a-menu>
   </a-drawer>
