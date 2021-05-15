@@ -9,4 +9,9 @@ module.exports = {
     HotInfo: "Popular ",
     RecentlyUpdated: "Recently",
   },
+  tool_box:{
+    title:"Tool Box",
+    start:"Initiate discussion ",
+    reportBug:"Report Bugs (Forms)"
+  }
 };

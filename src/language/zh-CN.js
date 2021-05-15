@@ -9,4 +9,9 @@ module.exports = {
     HotInfo: "热门推荐",
     RecentlyUpdated: "最近更新",
   },
+  tool_box:{
+    title:"快捷工具箱",
+    start:"发起议题",
+    reportBug:"反馈Bug"
+  }
 };

@@ -1,5 +1,5 @@
 <template>
-  <a-carousel autoplay>
+  <a-carousel>
     <div v-for="imgcard in ImgList" v-bind:key="imgcard" class="outer-box" @click="getAD(imgcard.link)">
       <div
         class="img-holder"
@@ -8,7 +8,12 @@
           backgroundSize: 'contain',
         }"
       ></div>
-      <img class="img-content" :src="imgcard.url" alt="" />
+      <div
+        class="img-content"
+        :style="{
+          backgroundImage: 'url(' + imgcard.url + ')',
+        }"
+      />
       <div class="inner-shadow">
         <span class="img-description">
           {{ imgcard.description }}
@@ -43,8 +48,8 @@ export default {
     },
   },
   activated() {
-    console.log("onload Card Scroll")
-  }
+    console.log("onload Card Scroll");
+  },
 };
 </script>
 
@@ -52,6 +57,7 @@ export default {
 $scroll_height: 270px;
 
 .outer-box {
+  transition: all .25s ease-in-out;
   cursor: pointer;
   overflow: hidden;
   background-color: white;
@@ -63,14 +69,21 @@ $scroll_height: 270px;
 }
 
 .img-holder {
+  transition: all .25s ease-in-out;
   height: $scroll_height;
+  margin-bottom: -$scroll_height;
   width: 100%;
   filter: blur(5px);
 }
 
 .img-content {
+  transition: all .25s ease-in-out;
   //width: 100%;
-  margin-top: -$scroll_height;
+  box-shadow:0 0 30px 30px rgba(0,0,0,.6) inset;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
   z-index: 1;
   height: $scroll_height;
 }
@@ -78,6 +91,7 @@ $scroll_height: 270px;
 $bottom_text_holder_height: 60px;
 
 .inner-shadow {
+  transition: all .25s ease-in-out;
   display: flex;
   align-items: center;
   padding: 0 30px;
@@ -95,6 +109,7 @@ $bottom_text_holder_height: 60px;
 }
 
 .img-description {
+  transition: all .25s ease-in-out;
   font-size: 20px;
   font-weight: 600;
   color: white;

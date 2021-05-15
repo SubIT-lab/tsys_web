@@ -2,14 +2,11 @@
   <a-layout style="background-color: #f5f5f5">
     <Header />
     <div class="content">
-      <Scroll
-        class="scroll"
-        style="margin: 0 0 20px 0; box-shadow: 0 1px 3px rgba(18 18 18 0.1)"
-      />
+      <Scroll class="scroll card" style="margin: 0 0 10px 0" />
       <div class="info-area">
-        <SubjectList />
+        <SubjectList class="card" />
         <div class="tool-box">
-
+          <ToolBox class="card" />
         </div>
       </div>
     </div>
@@ -20,6 +17,7 @@
 import Header from "@/components/Home/Header";
 import Scroll from "@/components/Home/Scroll";
 import SubjectList from "@/components/Home/SubjectList";
+import ToolBox from "@/components/Home/ToolBox";
 
 export default {
   name: "Home",
@@ -27,27 +25,55 @@ export default {
     Header,
     Scroll,
     SubjectList,
+    ToolBox,
   },
 };
 </script>
 <style lang="scss">
 .content {
   display: flex;
+  padding-top: 20px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px 10%;
 }
 
+$view_width: 75%;
+
 .scroll {
-  width: 90%;
+  width: $view_width;
+  transition: all 0.25s ease-in-out;
 }
 
 .info-area {
-  width: 90%;
+  transition: all 0.25s ease-in-out;
+  width: $view_width;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+}
+
+@media screen and(max-width: 1000px) {
+  .scroll {
+    width: 95vw;
+  }
+  .info-area {
+    width: 95vw;
+  }
+}
+
+.tool-box {
+  width: 30%;
+}
+
+@media screen and(max-width: 800px) {
+  .tool-box {
+    display: none;
+  }
+}
+
+.card {
+  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
 }
 
 @media screen and(max-width: 600px) {

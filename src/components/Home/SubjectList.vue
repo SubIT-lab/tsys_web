@@ -11,7 +11,9 @@
         {{ item.title }}
       </span>
     </template>
-    <p v-if="noTitleKey === 'article'">article content</p>
+    <div v-if="noTitleKey === 'article'">
+
+    </div>
     <p v-else-if="noTitleKey === 'update'">app content</p>
     <p v-else>project content</p>
   </a-card>
@@ -52,10 +54,12 @@ export default {
 
 <style lang="scss">
 .info-list {
-  width: 70%;
+  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+  width: 68%;
 }
 
-@media screen and(max-width: 600px) {
+
+@media screen and(max-width: 800px) {
   .info-list {
     width: 100%;
   }
