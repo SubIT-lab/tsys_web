@@ -9,7 +9,12 @@
           @click="drawerVisible = !drawerVisible"
           shape="round"
           class="menu-button"
-          style="margin-right: 20px; padding: 3px 10px; margin-left: 10px"
+          style="
+            height: 43px;
+            margin-right: 20px;
+            padding: 9px 10px;
+            margin-left: 10px;
+          "
         >
           <UnorderedListOutlined style="font-size: 23px" />
         </a-button>
@@ -20,18 +25,18 @@
       <a-menu v-model:selectedKeys="current" mode="horizontal" id="Main-Menu">
         <a-menu-item key="Home" class="spacer">
           <HomeOutlined />
-          <span>首页</span>
+          <span>{{ $t("header_menu.mainPage") }}</span>
         </a-menu-item>
         <a-menu-item key="Find" class="spacer">
           <BulbOutlined />
-          <span>发现</span>
+          <span>{{ $t("header_menu.FindMore") }}</span>
         </a-menu-item>
       </a-menu>
       <div class="search-box vertical_center">
         <a-input-search
           class="search-box-header"
           v-model:value="searchBox"
-          placeholder="input search text"
+          :placeholder="$t('header_menu.SearchBoxHint')"
           enter-button
           @search="onSearch"
         />
@@ -49,7 +54,7 @@
     </a-row>
   </a-layout-header>
   <a-drawer
-    title="菜单"
+    :title="$t('header_menu.Menu')"
     placement="left"
     :closable="false"
     :visible="drawerVisible"
@@ -62,11 +67,11 @@
     >
       <a-menu-item key="Home" class="spacer">
         <HomeOutlined />
-        <span>首页</span>
+        <span>{{ $t("header_menu.mainPage") }}</span>
       </a-menu-item>
       <a-menu-item key="Find" class="spacer">
         <BulbOutlined />
-        <span>发现</span>
+        <span>{{ $t("header_menu.Find") }}</span>
       </a-menu-item>
     </a-menu>
   </a-drawer>
