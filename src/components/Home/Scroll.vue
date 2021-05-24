@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-$scroll_height: 270px;
+$scroll_height: 30vh;
 
 .outer-box {
   transition: all .25s ease-in-out;
@@ -78,8 +78,7 @@ $scroll_height: 270px;
 
 .img-content {
   transition: all .25s ease-in-out;
-  //width: 100%;
-  box-shadow:0 0 30px 30px rgba(0,0,0,.6) inset;
+  box-shadow: 0 0 30px 30px rgba(0, 0, 0, .6) inset;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

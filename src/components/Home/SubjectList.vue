@@ -11,21 +11,19 @@
         {{ item.title }}
       </span>
     </template>
-    <div v-if="noTitleKey === 'article'">
-
-    </div>
-    <p v-else-if="noTitleKey === 'update'">app content</p>
-    <p v-else>project content</p>
+    <ArticleCardList ref="articleCard" />
   </a-card>
 </template>
 
 <script>
 import { FireOutlined } from "@ant-design/icons-vue";
+import ArticleCardList from "./ArticleCardList";
 
 export default {
   name: "SubjectList",
   components: {
     FireOutlined,
+    ArticleCardList,
   },
   data() {
     return {
@@ -44,7 +42,8 @@ export default {
     };
   },
   methods: {
-    onTabChange: function(value) {
+    onTabChange: function (value) {
+      this.$refs.articleCard.tabChange(value);
       console.log(value);
       this.noTitleKey = value;
     },
@@ -57,7 +56,6 @@ export default {
   box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
   width: 68%;
 }
-
 
 @media screen and(max-width: 800px) {
   .info-list {

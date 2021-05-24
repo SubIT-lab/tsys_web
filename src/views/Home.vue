@@ -1,8 +1,8 @@
 <template>
-  <a-layout style="background-color: #f5f5f5">
+  <div>
     <Header />
     <div class="content">
-      <Scroll class="scroll card" style="margin: 0 0 10px 0" />
+      <Scroll class="scroll card" style="margin: 0 0 20px 0" />
       <div class="info-area">
         <SubjectList class="card" />
         <div class="tool-box">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-  </a-layout>
+  </div>
 </template>
 
 <script>
@@ -29,6 +29,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .content {
   display: flex;
