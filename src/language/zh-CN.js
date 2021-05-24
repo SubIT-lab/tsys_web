@@ -14,9 +14,9 @@ module.exports = {
     start: "发起议题",
     reportBug: "反馈Bug",
   },
-  article_card:{
-    agree:"支持",
-    disagree:"反对",
-    neutral:"中立"
-  }
+  article_card: {
+    agree: "支持",
+    disagree: "反对",
+    neutral: "中立",
+  },
 };
