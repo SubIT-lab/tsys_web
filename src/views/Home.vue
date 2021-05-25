@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Header from "@/components/Home/Header";
+import Header from "@/components/Header";
 import Scroll from "@/components/Home/Scroll";
 import SubjectList from "@/components/Home/SubjectList";
 import ToolBox from "@/components/Home/ToolBox";

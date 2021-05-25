@@ -19,10 +19,10 @@
           <UnorderedListOutlined style="font-size: 23px" />
         </a-button>
         <div id="logo">
-          <img src="../../assets/logo.png" alt="" style="height: 63px" />
+          <img src="../assets/logo.png" alt="" style="height: 63px" />
         </div>
       </div>
-      <a-menu v-model:selectedKeys="current" mode="horizontal" id="Main-Menu">
+      <a-menu v-model:selectedKeys="current" mode="horizontal" id="Main-Menu" @click="tabChange">
         <a-menu-item key="Home" class="spacer">
           <HomeOutlined />
           <span>{{ $t("header_menu.mainPage") }}</span>
@@ -78,13 +78,8 @@
 </template>
 
 <script>
-import {
-  BellOutlined,
-  BulbOutlined,
-  HomeOutlined,
-  UnorderedListOutlined,
-  UserOutlined,
-} from "@ant-design/icons-vue";
+import { BellOutlined, BulbOutlined, HomeOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons-vue";
+import router from "../router";
 
 export default {
   name: "Header",
@@ -95,6 +90,7 @@ export default {
     UserOutlined,
     UnorderedListOutlined,
   },
+  props: ["crt"],
   data() {
     return {
       current: "Home",
@@ -103,13 +99,20 @@ export default {
       unreadMessage: 0,
     };
   },
+  mounted() {
+    if (this.crt) this.current = this.crt;
+  },
   methods: {
-    onSearch: function () {
+    onSearch: function() {
       console.log(this.searchBox);
     },
-    tabChange: function () {
+    tabChange: function(e) {
       this.drawerVisible = false;
-      this.$emit("onChange", this.current);
+      if (e.key === "Home") {
+        router.push("/");
+      } else if (e.key === "Find") {
+        router.push("/find");
+      }
     },
   },
 };
